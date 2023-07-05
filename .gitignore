@@ -1,2 +1,5 @@
 
 out/
+Image.gz
+*.img
+kernel_log-*.txt
