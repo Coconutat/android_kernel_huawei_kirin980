@@ -28,7 +28,8 @@ fi
 date="$(date +%Y.%m.%d-%I:%M)"
 
 echo "***Building kernel..***"
-make ARCH=arm64 O=out merge_kirin980_mod_defconfig
+# 定义defconfig位置
+make ARCH=arm64 O=out xxxx_defconfig
 # 定义编译线程数
 make ARCH=arm64 O=out -j256 2>&1 | tee kernel_log-${date}.txt
 
