@@ -12,6 +12,8 @@ Modify Feature:
 + Delete Huawei SELINUX Spy
 + Delete Huawei Root Scan and Spy
 + Disable Huawei AVB Check
-+ Support Mate 20 EMUI 9.1.0(defconfig:Mate20_kirin980_mod_defconfig)
++ Support **Mate 20 EMUI 9.1.0**(defconfig:Mate20_kirin980_mod_defconfig)
  > Port from 970,980 open source defconfig and Mate20 config.gz
-+ Support KernelSU(Optional, within the branch KernelSU)
++ Support **KernelSU**(Optional, within the branch KernelSU)
+***  
+If you want to compile the kernel, you can only choose defconfig with the **mod** suffix.  
