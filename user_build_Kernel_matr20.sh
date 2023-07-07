@@ -33,15 +33,15 @@ make ARCH=arm64 O=out xxxx_defconfig
 # 定义编译线程数
 make ARCH=arm64 O=out -j256 2>&1 | tee kernel_log-${date}.txt
 
-#打包Ravel版内核
+#打包内核
 
 if [ -f out/arch/arm64/boot/Image.gz ];
 then
 	echo "***Packing kernel...***"
 
-	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on ssbd=kernel printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing unmovable_isolate1=2:192M,3:224M,4:256M buildvariant=user" --tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07c00000 --header_version 1 --os_version 9 --os_patch_level 2019-03-01  --output Kirin980-${date}.img
+	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on ssbd=kernel printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing unmovable_isolate1=2:192M,3:224M,4:256M buildvariant=user" --tags_offset 0x07988000 --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --header_version 1 --os_version 9.0.0 --os_patch_level 2019-08 --output Kirin980-${date}.img
 
-	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on ssbd=kernel printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive unmovable_isolate1=2:192M,3:224M,4:256M buildvariant=user" --tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07c00000 --header_version 1 --os_version 9 --os_patch_level 2019-03-01  --output Kirin980_PM-${date}.img
+	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on ssbd=kernel printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive unmovable_isolate1=2:192M,3:224M,4:256M buildvariant=user" --tags_offset 0x07988000 --kernel_offset 0x00008000 --ramdisk_offset 0x07b88000 --header_version 1 --os_version 9.0.0 --os_patch_level 2019-08   --output Kirin980_PM-${date}.img
 
 	cp out/arch/arm64/boot/Image.gz Image.gz 
 	echo " "
